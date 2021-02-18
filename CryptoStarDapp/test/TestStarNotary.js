@@ -87,8 +87,14 @@ it('can add the star name and star symbol properly', async() => {
     let tokenName = 'Star Token AM';
     let tokenSymbol = 'STAM';
 
-    assert.equal(tokenName, await instance.TOKEN_NAME.call());
-    assert.equal(tokenSymbol, await instance.TOKEN_SYMBOL.call());
+    let invokedTokenName = await instance.TOKEN_NAME.call();
+    console.log(`invokedTokenName = ${invokedTokenName}`);
+
+    let invokedTokenSymbol = await instance.TOKEN_SYMBOL.call();
+    console.log(`invokedTokenSymbol = ${invokedTokenSymbol}`);
+
+    assert.equal(tokenName, invokedTokenName);
+    assert.equal(tokenSymbol, invokedTokenSymbol);
 });
 
 it('lets 2 users exchange stars', async() => {
